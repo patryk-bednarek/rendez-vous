@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "780619189701",
+    "firebase_url": "https://rendezvous-7578b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "rendezvous-7578b",
+    "storage_bucket": "rendezvous-7578b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780619189701:android:cfe892c14f14a5dab6cfac",
+        "android_client_info": {
+          "package_name": "com.example.rendezvous"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780619189701-f3ebjm5pofl4g5jl7hsgmfbrvquf2oi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANjglwAnuiSbEaOqvzu9K0rMGpqh493T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780619189701-f3ebjm5pofl4g5jl7hsgmfbrvquf2oi3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
