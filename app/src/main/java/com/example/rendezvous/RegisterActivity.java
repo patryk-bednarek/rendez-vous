@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; //todo cos tam2
     public static final String TAG = "RegisterActivity";
 
     @Override
@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                 spinner.setVisibility(View.VISIBLE);
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null && user.isEmailVerified()) {
-                    Intent i = new Intent(RegisterActivity.this, MainActivity2.class); //TODO Main2
+                    Intent i = new Intent(RegisterActivity.this, MainActivity.class); //todo cos tam
                     startActivity(i);
                     finish();
                     spinner.setVisibility(View.GONE);
@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
         existing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(RegisterActivity.this, MainActivity2.class);
+                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
                 return;
@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         checkBox.setText("");
         textView.setText(Html.fromHtml(" I have read and agree to the " +
-                "<a href = 'https://www.blogger.com/blog/post/edit/preview/8243789467433094066/5815886455467417098'> Terms & Conditions</a>")); //TODO later add link here privacy policy
+                "<a href = 'https://www.blogger.com/blog/post/edit/preview/8243789467433094066/5815886455467417098'> Terms & Conditions</a>"));
         textView.setClickable(true);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 

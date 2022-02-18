@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             } else {
                                 if (mAuth.getCurrentUser().isEmailVerified()) {
-                                    Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
                                     finish();
                                     return;
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null && user.isEmailVerified() && !loginButtonClicked) {
                     spinner.setVisibility(View.VISIBLE);
-                    Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                     finish();
                     spinner.setVisibility(View.GONE);

@@ -13,10 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rendezvous">
         <activity
+            android:name=".BtnDislikeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BtnLikeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MatchesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
@@ -28,7 +40,7 @@
             android:name=".ChooseLoginAndReg"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
