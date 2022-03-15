@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rendezvous">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".BtnDislikeActivity"
             android:exported="false" />
         <activity
