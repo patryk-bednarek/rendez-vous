@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rendezvous">
         <activity
-            android:name=".ChatActivity"
+            android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".BtnDislikeActivity"
@@ -22,7 +22,7 @@
             android:name=".BtnLikeActivity"
             android:exported="false" />
         <activity
-            android:name=".MatchesActivity"
+            android:name=".matches.MatchesActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
