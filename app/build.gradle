@@ -13,6 +13,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                onesignal_app_id : '8c5b524a-93ee-4de7-ac9c-19b8e5d47285',
+                onesignal_google_project_number: '780619189701'
+        ]
     }
 
     buildTypes {
@@ -36,7 +40,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    //implementation 'com.onesignal:OneSignal:3.10.1'
+    implementation 'com.onesignal:OneSignal:3.10.1'
 
 
     implementation 'com.google.firebase:firebase-auth:21.0.1'
@@ -65,3 +69,5 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'

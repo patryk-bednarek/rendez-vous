@@ -1,6 +1,7 @@
 package com.example.rendezvous.chat;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -11,6 +12,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,12 +33,14 @@ import com.bumptech.glide.Glide;
 import com.example.rendezvous.R;
 import com.example.rendezvous.matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -337,9 +341,178 @@ public class ChatActivity extends AppCompatActivity {
         yeps_in_UserId_dbReference.removeValue();
     }
 
-    private List<ChatObject> getDataSetChat() {
+    private void sendMessage() {
+        final String sendMessageText = mSendEditText.getText().toString();
+        long now = System.currentTimeMillis();
+        String timeStamp = Long.toString(now);
+
+        if (!sendMessageText.isEmpty()) {
+            DatabaseReference newMessageDb = mDatabaseChat.push();
+
+            Map newMessage = new HashMap();
+            newMessage.put("createdByUser", currentUserId);
+            newMessage.put("text", sendMessageText);
+            newMessage.put("timeStamp", timeStamp);
+            newMessage.put("seen","false");
+
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        if (dataSnapshot.child("name").exists()) {
+                            currentUserName = dataSnapshot.child("name").getValue().toString();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            lastMessage = sendMessageText;
+            lastTimeStamp = timeStamp;
+            updateLastMessage();
+            seenMessage(sendMessageText);
+            newMessageDb.setValue(newMessage);
+        }
+        mSendEditText.setText(null);
     }
 
+    private void updateLastMessage() {
+        DatabaseReference currUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId)
+            .child("connections").child("matches").child(matchId);
+        DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Users").child(matchId)
+                .child("connections").child("matches").child(currentUserId);
+
+        Map lastMessageMap = new HashMap();
+        lastMessageMap.put("lastMessage", lastMessage);
+        Map lastTimestampMap = new HashMap();
+        lastTimestampMap.put("lastTimestamp", lastTimeStamp);
+
+        Map lastSeen = new HashMap();
+        lastSeen.put("lastSeen", "true");
+        currUserDb.updateChildren(lastSeen);
+        currUserDb.updateChildren(lastMessageMap);
+        currUserDb.updateChildren(lastTimestampMap);
+
+        matchDb.updateChildren(lastMessageMap);
+        matchDb.updateChildren(lastTimestampMap);
+    }
+
+
+
     private void getChatId() {
+        mDatabaseUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    chatId = dataSnapshot.getValue().toString();
+                    mDatabaseChat = mDatabaseChat.child(chatId);
+                    getChatMessages();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getChatMessages() {
+        mDatabaseChat.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                if (dataSnapshot.exists()) {
+                    messageId = null;
+                    message = null;
+                    createdByUser = null;
+                    isSeen = null;
+                    if (dataSnapshot.child("text").getValue() != null) {
+                        message = dataSnapshot.child("text").getValue().toString();
+                    }
+                    if (dataSnapshot.child("createdByUser").getValue() != null) {
+                        createdByUser = dataSnapshot.child("createdByUser").getValue().toString();
+                    }
+                    if (dataSnapshot.child("seen").getValue() != null) {
+                        isSeen = dataSnapshot.child("seen").getValue().toString();
+                    }
+                    else isSeen = "true";
+
+                    messageId = dataSnapshot.getKey().toString();
+                    if (message != null && createdByUser != null) {
+                        currentUserBoolean = false;
+                        if (createdByUser.equals(currentUserId)) {
+                            currentUserBoolean = true;
+                        }
+                        ChatObject newMessage = null;
+                        if (isSeen.equals("false")) {
+                            if (!currentUserBoolean) {
+                                isSeen = "true";
+
+                                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Chat")
+                                        .child(chatId).child(messageId);
+                                Map seenInfo = new HashMap();
+                                seenInfo.put("seen", "true");
+                                reference.updateChildren(seenInfo);
+
+                                newMessage = new ChatObject(message, currentUserBoolean, true);
+                            }
+                            else {
+                                newMessage = new ChatObject(message, currentUserBoolean, false);
+                            }
+                        }
+                        else {
+                            newMessage = new ChatObject(message, currentUserBoolean, true);
+                        }
+                        DatabaseReference usersInChat = FirebaseDatabase.getInstance().getReference().child("Chat")
+                                .child(matchId);
+
+                        resultsChat.add(newMessage);
+                        mChatAdapter.notifyDataSetChanged();
+                        if (mRecyclerView.getAdapter() != null && resultsChat.size() > 0){
+                            mRecyclerView.smoothScrollToPosition(resultsChat.size() - 1);
+                        } else {
+                            Toast.makeText(ChatActivity.this, "Chat empty", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private ArrayList<ChatObject> resultsChat = new ArrayList<>();
+    private List<ChatObject> getDataSetChat() {
+        return resultsChat;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        return;
     }
 }

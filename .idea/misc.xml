@@ -14,13 +14,15 @@
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_choose_login_and_reg.xml" value="0.22" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_forget_password.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_main.xml" value="0.14" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_main2.xml" value="0.16770833333333332" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_matches.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/item.xml" value="0.23072916666666668" />
+        <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/item_chat.xml" value="0.11651469098277609" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/item_matches.xml" value="0.33" />
+        <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/item_profile.xml" value="0.2" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/layout_top_navigation_back.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/layout_top_navigation_view.xml" value="0.1703125" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/layout/like_border.xml" value="0.19708029197080293" />

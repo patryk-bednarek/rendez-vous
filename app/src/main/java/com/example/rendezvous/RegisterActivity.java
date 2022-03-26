@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button mRegister;
     private ProgressBar spinner;
-    private EditText mEmail, mPassword, mName, mBudget;
+    private EditText mEmail, mPassword, mName, mBudget, mPhone;
     private RadioGroup radioGroup;
 
     private FirebaseAuth mAuth;
@@ -82,6 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
         final CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox1);
         TextView textView = (TextView) findViewById(R.id.TextView2);
 
+        mPhone = (EditText) findViewById(R.id.phone);
+
         checkBox.setText("");
         textView.setText(Html.fromHtml(" I have read and agree to the " +
                 "<a href = 'https://www.blogger.com/blog/post/edit/preview/8243789467433094066/5815886455467417098'> Terms & Conditions</a>"));
@@ -97,8 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = mPassword.getText().toString();
                 final String name = mName.getText().toString();
                 final Boolean tnc = checkBox.isChecked();
+                final String phone = mPhone.getText().toString();
 
-                if (checkInputs(email, name, password, tnc)) {
+                if (checkInputs(email, name, password, tnc, phone)) {
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(RegisterActivity.this,
                                     new OnCompleteListener<AuthResult>() {
@@ -129,6 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                             mEmail.setText("");
                                                             mName.setText("");
                                                             mPassword.setText("");
+                                                            mPhone.setText("");
                                                             Intent i = new Intent(RegisterActivity.this, ChooseLoginAndReg.class);
                                                             startActivity(i);
                                                             finish();
@@ -148,8 +152,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean checkInputs(String email, String username, String password, Boolean tnc) {
-        if (email.equals("") || username.equals("") || password.equals("")) {
+    private boolean checkInputs(String email, String username, String password, Boolean tnc, String phone) {
+        if (email.equals("") || username.equals("") || password.equals("") || phone.equals("")) {
             Toast.makeText(this, "All fields must be filled out!", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -161,6 +165,11 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please accept Terms and Conditions ", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if (!phone.matches(emailPattern)) {
+            Toast.makeText(this, "Invalid phone number, try again", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 
