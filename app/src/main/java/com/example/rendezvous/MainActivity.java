@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private Cards cards_data[];
     private com.example.rendezvous.cards.ArrayAdapterCl arrayAdapter;
     private int i;
-    private  String tag;
+    private String tag;
     private FirebaseAuth mAuth;
     private ProgressBar spinner;
     boolean firstStart;
@@ -461,7 +461,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
         return;
     }
-    public  class NotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
+    public class NotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
         private Context mContext;
         public NotificationOpenedHandler(Context context) {
             mContext = context;

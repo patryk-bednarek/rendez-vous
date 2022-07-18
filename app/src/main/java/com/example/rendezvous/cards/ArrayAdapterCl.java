@@ -41,45 +41,45 @@ public class ArrayAdapterCl extends ArrayAdapter<Cards> {
         budget.setText(cardItem.getBudget());
 
         //need image
-        if (cardItem.getKitchenCountryNeed().equals("Polish"))
+        if (cardItem.getNeed().equals("Polish"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.poland));
-        else if (cardItem.getKitchenCountryNeed().equals("Ukrainian"))
+        else if (cardItem.getNeed().equals("Ukrainian"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ukraine));
-        else if (cardItem.getKitchenCountryNeed().equals("Mexican"))
+        else if (cardItem.getNeed().equals("Mexican"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.mexico));
-        else if (cardItem.getKitchenCountryNeed().equals("German"))
+        else if (cardItem.getNeed().equals("German"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.germany));
-        else if (cardItem.getKitchenCountryNeed().equals("American"))
+        else if (cardItem.getNeed().equals("American"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.usa));
-        else if (cardItem.getKitchenCountryNeed().equals("Japanese"))
+        else if (cardItem.getNeed().equals("Japanese"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.japan));
-        else if (cardItem.getKitchenCountryNeed().equals("Spanish"))
+        else if (cardItem.getNeed().equals("Spanish"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.spain));
-        else if (cardItem.getKitchenCountryNeed().equals("Chinese"))
+        else if (cardItem.getNeed().equals("Chinese"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.china));
-        else if (cardItem.getKitchenCountryNeed().equals("French"))
+        else if (cardItem.getNeed().equals("French"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.france));
         else
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.forbidden));
 
         //food image
-        if (cardItem.getFavDishGive().equals("Polish"))
+        if (cardItem.getGive().equals("Polish"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.poland));
-        else if (cardItem.getFavDishGive().equals("Ukrainian"))
+        else if (cardItem.getGive().equals("Ukrainian"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ukraine));
-        else if (cardItem.getFavDishGive().equals("Mexican"))
+        else if (cardItem.getGive().equals("Mexican"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.mexico));
-        else if (cardItem.getFavDishGive().equals("German"))
+        else if (cardItem.getGive().equals("German"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.germany));
-        else if (cardItem.getFavDishGive().equals("American"))
+        else if (cardItem.getGive().equals("American"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.usa));
-        else if (cardItem.getFavDishGive().equals("Japanese"))
+        else if (cardItem.getGive().equals("Japanese"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.japan));
-        else if (cardItem.getFavDishGive().equals("Spanish"))
+        else if (cardItem.getGive().equals("Spanish"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.spain));
-        else if (cardItem.getFavDishGive().equals("Chinese"))
+        else if (cardItem.getGive().equals("Chinese"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.china));
-        else if (cardItem.getFavDishGive().equals("French"))
+        else if (cardItem.getGive().equals("French"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.france));
         else
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.forbidden));

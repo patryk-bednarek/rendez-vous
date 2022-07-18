@@ -33,6 +33,13 @@
         <entry key="..\:/Android/Rendezvous/app/src/main/res/menu/chat_menu.xml" value="0.25" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/menu/settings_menu.xml" value="0.275" />
         <entry key="..\:/Android/Rendezvous/app/src/main/res/menu/top_navigation_toolbar.xml" value="0.1703125" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_chat.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_forget_password.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_matches.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_register.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/activity_settings.xml" value="0.18" />
+        <entry key="..\:/Users/patry/AndroidStudioProjects/rendez-vous-app/app/src/main/res/layout/toolbar_settings.xml" value="0.18697916666666667" />
       </map>
     </option>
   </component>

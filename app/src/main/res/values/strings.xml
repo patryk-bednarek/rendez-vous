@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Rendezvous</string>
+    
+    <string-array name="give">
+        <item>Test</item>
+        <item>Dupa</item>
+    </string-array>
 </resources>

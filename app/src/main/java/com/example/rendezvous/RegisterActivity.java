@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         final CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox1);
         TextView textView = (TextView) findViewById(R.id.TextView2);
 
-        mPhone = (EditText) findViewById(R.id.phone);
+        mPhone = (EditText) findViewById(R.id.phone_number);
 
         checkBox.setText("");
         textView.setText(Html.fromHtml(" I have read and agree to the " +
@@ -165,7 +165,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please accept Terms and Conditions ", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (!phone.matches(emailPattern)) {
+        if (phone.isEmpty()) {
             Toast.makeText(this, "Invalid phone number, try again", Toast.LENGTH_SHORT).show();
             return false;
         }

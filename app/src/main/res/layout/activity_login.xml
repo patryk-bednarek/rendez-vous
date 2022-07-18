@@ -69,7 +69,8 @@
                         android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/light_grey"
+                        android:textColor="@color/black"
                         android:hint="Email"
                         android:padding="20dp"
                         android:inputType="textEmailAddress"/>
@@ -87,7 +88,8 @@
                             android:id="@+id/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/light_grey"
+                            android:textColor="@color/black"
                             android:hint="Password"
                             android:padding="20dp"
                             android:inputType="textPassword"/>

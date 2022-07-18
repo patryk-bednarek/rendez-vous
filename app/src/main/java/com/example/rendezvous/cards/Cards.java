@@ -4,19 +4,19 @@ public class Cards {
     private String userId;
     private String name;
     private String profileImageUrl;
-    private String kitchenCountryNeed;
-    private String favDishGive;
+    private String need;
+    private String give;
     private String budget;
 
     public Cards() {
     }
 
-    public Cards(String userId, String name, String profileImageUrl, String kitchenCountryNeed, String favDishGive, String budget) {
+    public Cards(String userId, String name, String profileImageUrl, String need, String give, String budget) {
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
-        this.kitchenCountryNeed = kitchenCountryNeed;
-        this.favDishGive = favDishGive;
+        this.need = need;
+        this.give = give;
         this.budget = budget;
     }
 
@@ -44,20 +44,20 @@ public class Cards {
         this.profileImageUrl = profileImageUrl;
     }
 
-    public String getKitchenCountryNeed() {
-        return kitchenCountryNeed;
+    public String getNeed() {
+        return need;
     }
 
-    public void setKitchenCountryNeed(String kitchenCountryNeed) {
-        this.kitchenCountryNeed = kitchenCountryNeed;
+    public void setNeed(String need) {
+        this.need = need;
     }
 
-    public String getFavDishGive() {
-        return favDishGive;
+    public String getGive() {
+        return give;
     }
 
-    public void setFavDishGive(String favDishGive) {
-        this.favDishGive = favDishGive;
+    public void setGive(String give) {
+        this.give = give;
     }
 
     public String getBudget() {
@@ -74,8 +74,8 @@ public class Cards {
                 "userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", profileImageUrl='" + profileImageUrl + '\'' +
-                ", kitchenCountryNeed='" + kitchenCountryNeed + '\'' +
-                ", favDishGive='" + favDishGive + '\'' +
+                ", need='" + need + '\'' +
+                ", give='" + give + '\'' +
                 ", budget='" + budget + '\'' +
                 '}';
     }

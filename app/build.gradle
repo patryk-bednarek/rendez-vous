@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
+
 
     defaultConfig {
         applicationId "com.example.rendezvous"
         minSdk 24
-        targetSdk 32
+        targetSdk 28
         versionCode 1
         versionName "1.0"
 
@@ -41,17 +42,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.onesignal:OneSignal:3.10.1'
+//    implementation 'com.onesignal:OneSignal:4.6.2'
 
-
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-storage:20.0.0'
-    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+    implementation "com.google.firebase:firebase-iid"
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:19.0.0'
 
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.lorentzos.swipecards:library:1.0.9'
-    implementation 'com.google.firebase:firebase-core:20.1.0'
+    implementation 'com.google.firebase:firebase-core:17.0.0'
     implementation 'com.google.android.material:material:1.6.0-alpha02'
-    implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'com.google.firebase:firebase-database:18.0.0'
     //navigation
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
 

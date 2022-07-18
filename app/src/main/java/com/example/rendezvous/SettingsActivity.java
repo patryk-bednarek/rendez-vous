@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -48,7 +50,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -96,12 +100,12 @@ public class SettingsActivity extends AppCompatActivity {
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.services, android.R.layout.simple_spinner_item);
+                R.array.give, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         need.setAdapter(adapter);
 
         ArrayAdapter<CharSequence> adapter_give = ArrayAdapter.createFromResource(this,
-                R.array.services, android.R.layout.simple_spinner_item);
+                R.array.give, android.R.layout.simple_spinner_item);
         adapter_give.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         give.setAdapter(adapter_give);
 
@@ -120,10 +124,10 @@ public class SettingsActivity extends AppCompatActivity {
 
 
         mConfirm.setOnClickListener(view -> {
+            saveUserInfo();
             Intent intent = new Intent(SettingsActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
-            return;
         });
 
         mBack.setOnClickListener(view -> {
@@ -349,8 +353,8 @@ public class SettingsActivity extends AppCompatActivity {
         Map userInfo = new HashMap();
         userInfo.put("name", name);
         userInfo.put("phone", phone);
-        userInfo.put("need", need);
-        userInfo.put("give", give);
+        userInfo.put("need", userNeed);
+        userInfo.put("give", userGive);
         userInfo.put("budget", userBudget);
         mUserDatabase.updateChildren(userInfo);
         if(resultUri != null) {

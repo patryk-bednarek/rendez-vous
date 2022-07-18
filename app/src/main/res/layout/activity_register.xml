@@ -57,8 +57,9 @@
                             android:id="@+id/email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/light_grey"
                             android:hint="Enter your email"
+                            android:textColor="@color/black"
                             android:inputType="textEmailAddress"
                             android:padding="20dp" />
 
@@ -77,8 +78,9 @@
                             android:id="@+id/name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/light_grey"
                             android:hint="Enter your name"
+                            android:textColor="@color/black"
                             android:inputType="textPersonName"
                             android:padding="20dp" />
 
@@ -97,8 +99,9 @@
                             android:id="@+id/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/light_grey"
                             android:hint="Enter your Password"
+                            android:textColor="@color/black"
                             android:inputType="textPassword"
                             android:padding="20dp" />
 
@@ -117,9 +120,10 @@
                             android:id="@+id/phone_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/light_grey"
                             android:ems="10"
                             android:hint="Enter your phone number"
+                            android:textColor="@color/black"
                             android:inputType="number"
                             android:padding="20dp" />
 
