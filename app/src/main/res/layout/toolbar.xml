@@ -20,7 +20,7 @@
             android:background="@drawable/ic_back_24dp"/>
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/chatToolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

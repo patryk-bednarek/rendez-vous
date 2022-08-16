@@ -196,8 +196,8 @@ public class ChatActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.chat_menu, menu);
-        TextView mMatchNameTextView = (TextView) findViewById(R.id.chatToolbar);
-        mMatchNameTextView.setText(matchName);
+        Toolbar mMatchNameTextView = findViewById(R.id.chatToolbar);
+//        mMatchNameTextView.set(matchName);
         return true;
     }
 
@@ -314,7 +314,7 @@ public class ChatActivity extends AppCompatActivity {
                     .show();
         }
         else if (item.getItemId() == R.id.viewProfile) {
-            showProfile(findViewById(R.id.content));
+            showProfile(findViewById(R.id.chatToolbar));
         }
         return super.onOptionsItemSelected(item);
     }
