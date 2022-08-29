@@ -2,7 +2,14 @@
     <string name="app_name">Rendezvous</string>
     
     <string-array name="give">
-        <item>Test</item>
-        <item>Dupa</item>
+        <item>Polish</item>
+        <item>Ukrainian</item>
+        <item>Mexican</item>
+        <item>German</item>
+        <item>American</item>
+        <item>Japanese</item>
+        <item>Spanish</item>
+        <item>Chinese</item>
+        <item>French</item>
     </string-array>
 </resources>

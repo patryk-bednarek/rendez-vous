@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ public class MatchesActivity extends AppCompatActivity {
     private HashMap<String,Integer> mList = new HashMap<>();
     private String currentUserId, mLastTimeStamp, mLastMessage, lastSeen;
     DatabaseReference mCurrUserIdInsideMatchConnections, mCheckLastSeen;
+
 
 
     @Override

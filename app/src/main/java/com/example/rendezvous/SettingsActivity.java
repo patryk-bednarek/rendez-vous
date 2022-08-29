@@ -180,7 +180,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.ContactUs) {
             new AlertDialog.Builder(SettingsActivity.this)
                     .setTitle("Contact us")
-                    .setMessage("Contact us: patrykbedek@gmail.com")
+                    .setMessage("Contact us: Patryk Bednarek")
                     .setNegativeButton("Dismiss", null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();

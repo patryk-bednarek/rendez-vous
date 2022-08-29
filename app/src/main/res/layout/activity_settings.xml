@@ -44,7 +44,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginBottom="20sp"
-                        android:background="@drawable/profile"
+                        android:background="@drawable/ic_dot"
                         android:src="@drawable/profile"/>
 
                     <View
@@ -129,7 +129,7 @@
                     android:padding="5dp"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="i can share my"/>
+                    android:text="I want to eat"/>
 
                 <Spinner
                     android:id="@+id/spinner_give_settings"

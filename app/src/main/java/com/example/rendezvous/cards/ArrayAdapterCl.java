@@ -41,9 +41,9 @@ public class ArrayAdapterCl extends ArrayAdapter<Cards> {
         budget.setText(cardItem.getBudget());
 
         //need image
-        if (cardItem.getNeed().equals("Dupa"))
+        if (cardItem.getNeed().equals("Polish"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.poland));
-        else if (cardItem.getNeed().equals("Test"))
+        else if (cardItem.getNeed().equals("Ukrainian"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ukraine));
         else if (cardItem.getNeed().equals("Mexican"))
             mNeedImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.mexico));
@@ -69,7 +69,7 @@ public class ArrayAdapterCl extends ArrayAdapter<Cards> {
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ukraine));
         else if (cardItem.getGive().equals("Mexican"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.mexico));
-        else if (cardItem.getGive().equals("Dupa"))
+        else if (cardItem.getGive().equals("German"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.germany));
         else if (cardItem.getGive().equals("American"))
             mGiveImage.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.usa));
